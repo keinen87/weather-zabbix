@@ -1,0 +1,7 @@
+FROM zabbix/zabbix-server-pgsql:alpine-6.4-latest
+
+COPY --chown=zabbix:zabbix zabbix_http_check.conf /etc/zabbix/zabbix_server.conf.d/
+
+USER root
+RUN apk add --no-cache curl nano
+USER zabbix
